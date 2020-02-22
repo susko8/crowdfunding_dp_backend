@@ -3,6 +3,10 @@ spring:
           url: jdbc:postgresql://localhost:5432/crowdfunding_dp
           username: crowdfunding
           password: 12345
+    flyway:
+      user: crowdfunding
+      password: 12345
+      schemas: public
     jpa:
           hibernate:
                 ddl-auto: create-drop
