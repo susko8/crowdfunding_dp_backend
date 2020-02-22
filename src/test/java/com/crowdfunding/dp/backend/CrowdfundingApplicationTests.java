@@ -1,4 +1,4 @@
-package com.crowdfunding.dp.backend.backend;
+package com.crowdfunding.dp.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

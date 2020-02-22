@@ -1,4 +1,4 @@
-package com.crowdfunding.dp.backend.backend;
+package com.crowdfunding.dp.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
