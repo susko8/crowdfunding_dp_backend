@@ -7,6 +7,3 @@ spring:
       user: crowdfunding
       password: 12345
       schemas: public
-    jpa:
-          hibernate:
-                ddl-auto: create-drop

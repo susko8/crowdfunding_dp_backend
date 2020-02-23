@@ -6,5 +6,6 @@ CREATE TABLE project
 
 INSERT INTO project(projectid, projectname)
 VALUES (1, 'TEST');
+
 INSERT INTO project(projectid, projectname)
 VALUES (2, 'TEST2');
