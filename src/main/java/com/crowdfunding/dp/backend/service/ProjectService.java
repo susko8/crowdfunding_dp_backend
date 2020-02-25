@@ -1,7 +1,7 @@
 package com.crowdfunding.dp.backend.service;
 
-import com.crowdfunding.dp.backend.model.project.Project;
-import com.crowdfunding.dp.backend.model.project.ProjectRepository;
+import com.crowdfunding.dp.backend.model.Project;
+import com.crowdfunding.dp.backend.dao.ProjectRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

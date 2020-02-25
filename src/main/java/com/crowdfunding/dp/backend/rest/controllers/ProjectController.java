@@ -1,6 +1,6 @@
 package com.crowdfunding.dp.backend.rest.controllers;
 
-import com.crowdfunding.dp.backend.model.project.Project;
+import com.crowdfunding.dp.backend.model.Project;
 import com.crowdfunding.dp.backend.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

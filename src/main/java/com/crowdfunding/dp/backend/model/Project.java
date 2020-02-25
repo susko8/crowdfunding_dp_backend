@@ -1,4 +1,4 @@
-package com.crowdfunding.dp.backend.model.project;
+package com.crowdfunding.dp.backend.model;
 
 import lombok.Getter;
 import lombok.Setter;
