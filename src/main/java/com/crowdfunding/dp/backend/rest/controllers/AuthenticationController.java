@@ -2,8 +2,10 @@ package com.crowdfunding.dp.backend.rest.controllers;
 
 import com.crowdfunding.dp.backend.model.AuthenticationRequest;
 import com.crowdfunding.dp.backend.model.AuthenticationResponse;
+import com.crowdfunding.dp.backend.model.User;
 import com.crowdfunding.dp.backend.rest.security.JwtUtil;
 import com.crowdfunding.dp.backend.service.MyUserDetailsService;
+import com.crowdfunding.dp.backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +31,9 @@ public class AuthenticationController {
     @Autowired
     private JwtUtil jwtUtil;
 
+    @Autowired
+    private UserService userService;
+
 
     @PostMapping
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
@@ -46,6 +51,8 @@ public class AuthenticationController {
 
         final String jwt = jwtUtil.generateToken(userDetails);
 
-        return new ResponseEntity<>(new AuthenticationResponse(jwt), HttpStatus.OK);
+        final User user = userService.getLoggedInUser(jwt);
+
+        return new ResponseEntity<>(new AuthenticationResponse(jwt, user), HttpStatus.OK);
     }
 }
