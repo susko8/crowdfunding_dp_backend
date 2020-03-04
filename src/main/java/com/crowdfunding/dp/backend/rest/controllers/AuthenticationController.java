@@ -34,7 +34,7 @@ public class AuthenticationController {
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-                authenticationRequest.getUsername(),
+                authenticationRequest.getLogin(),
                 authenticationRequest.getPassword()
             ));
         } catch (BadCredentialsException e) {
@@ -42,7 +42,7 @@ public class AuthenticationController {
         }
 
         final UserDetails userDetails = userDetailsService
-            .loadUserByUsername(authenticationRequest.getUsername());
+            .loadUserByUsername(authenticationRequest.getLogin());
 
         final String jwt = jwtUtil.generateToken(userDetails);
 

@@ -11,9 +11,18 @@ import java.util.ArrayList;
 @Service
 public class MyUserDetailsService implements UserDetailsService {
 
+    private final UserService userService;
+
+    public MyUserDetailsService(UserService userService) {
+        this.userService = userService;
+    }
+
+
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        //TODO user podla mena
-        return new User("peter","peterheslo",new ArrayList<>());
+    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
+
+        com.crowdfunding.dp.backend.model.User user = userService.findUserByLogin(login);
+
+        return new User(user.getLogin(), user.getPassword(), new ArrayList<>());
     }
 }
