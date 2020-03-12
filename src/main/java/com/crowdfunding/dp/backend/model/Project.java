@@ -17,5 +17,11 @@ public class Project {
     Long id;
 
     @Column(name="projectname")
-    String ProjectName;
+    String name;
+
+    @Column(name="projectdescription")
+    String description;
+
+    @Column(name="projectimagesrc")
+    String src;
 }
