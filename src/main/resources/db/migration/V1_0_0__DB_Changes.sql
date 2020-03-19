@@ -38,7 +38,7 @@ INSERT INTO project(projectid, projectname, projectdescription, projectimagesrc)
 VALUES (4,
         'Test Projekt 4',
         'Muffin cake jujubes candy canes muffin gummi bears brownie cotton candy.',
-        'https://images.unsplash.com/photo-1573663660571-1bdb4d07828a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=701&q=80');
+        'https://images.unsplash.com/photo-1466940219795-c670f475e59f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=652&q=80');
 
 INSERT INTO project(projectid, projectname, projectdescription, projectimagesrc)
 VALUES (5,
