@@ -8,8 +8,8 @@ CREATE TABLE project
 
 CREATE TABLE users
 (
-    userid    int,
-    login     varchar(15),
+    userid    BIGSERIAL,
+    login     varchar(50),
     password  varchar(255),
     firstname varchar(50),
     lastname  varchar(50),

@@ -12,22 +12,22 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="userid")
-    Long id;
+    private Long id;
 
     @Column(name="login")
-    String login;
+    private String login;
 
     @Column(name="password")
-    String password;
+    private String password;
 
     @Column(name="firstname")
-    String firstName;
+    private String firstName;
 
     @Column(name="lastname")
-    String lastName;
+    private String lastName;
 
     @Column(name="userrole")
-    UserRoleEnum userRoleEnum;
+    private UserRoleEnum userRoleEnum;
 }
