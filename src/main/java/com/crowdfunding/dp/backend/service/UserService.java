@@ -26,4 +26,8 @@ public class UserService {
         final String login = jwtUtil.extractUsername(token);
         return userRepository.findUserByLoginEquals(login);
     }
+
+    public void registerUser(User user) {
+        userRepository.save(user);
+    }
 }
