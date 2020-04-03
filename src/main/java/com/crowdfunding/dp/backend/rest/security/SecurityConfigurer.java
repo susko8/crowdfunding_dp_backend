@@ -23,6 +23,8 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     @Autowired
     JwtRequestFilter jwtRequestFilter;
 
+    private final String[] allowedRoutes = {"/rest/api/authenticate", "/rest/api/projects", "/rest/api/projects/*", "/rest/api/users/register"};
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(myUserDetailsService);
@@ -32,17 +34,17 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         // povolenie request pre endpoint autentifikacie
         http.csrf().disable()
-            .authorizeRequests().antMatchers("/rest/api/authenticate").permitAll()
+            .authorizeRequests().antMatchers(allowedRoutes)
+            .permitAll()
             .anyRequest().authenticated()
-            .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+            .and()
+            .httpBasic()
+            .and()
+            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
+        http.cors();
 
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
-    }
-
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/rest/api/projects")
-            .and().ignoring().antMatchers("/rest/api/users/register");
     }
 
     @Bean

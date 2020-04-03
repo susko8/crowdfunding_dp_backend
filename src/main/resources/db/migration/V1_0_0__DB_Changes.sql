@@ -53,4 +53,7 @@ VALUES (6,
         'https://images.unsplash.com/photo-1582389713128-95f4b972ba4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80');
 
 INSERT INTO users(userid, login, password, firstname, lastname, userrole)
-VALUES (1, 'admin', '$2y$12$vKG/VsnYBQnfSgeXrlq4Meevjy9lAnslU1T0xB.2VWs/e2yXoeT1G', 'firstname', 'lastname', 0)
+VALUES (1, 'admin', '$2y$12$vKG/VsnYBQnfSgeXrlq4Meevjy9lAnslU1T0xB.2VWs/e2yXoeT1G', 'firstname', 'lastname', 0);
+
+INSERT INTO users(userid, login, password, firstname, lastname, userrole)
+VALUES (1, 'susko', '$2y$12$vKG/VsnYBQnfSgeXrlq4Meevjy9lAnslU1T0xB.2VWs/e2yXoeT1G', 'Samuel', 'Test', 1);

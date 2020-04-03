@@ -21,7 +21,7 @@ public class ProjectService {
         return projectRepository.findAll();
     }
 
-    public Project getOneProject(Integer projectId) {
+    public Project getOneProject(Long projectId) {
         return projectRepository.findById(projectId).orElse(null);
     }
 }
