@@ -19,6 +19,7 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<Boolean> registerUser(@RequestBody User user) {
+        //TODO double check
         userService.registerUser(user);
         return new ResponseEntity<>(true, HttpStatus.OK);
     }

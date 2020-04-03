@@ -1,7 +1,7 @@
 package com.crowdfunding.dp.backend.service;
 
-import com.crowdfunding.dp.backend.model.Project;
 import com.crowdfunding.dp.backend.dao.ProjectRepository;
+import com.crowdfunding.dp.backend.model.Project;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -19,5 +19,9 @@ public class ProjectService {
 
     public List<Project> getAllProjects() {
         return projectRepository.findAll();
+    }
+
+    public Project getOneProject(Integer projectId) {
+        return projectRepository.findById(projectId).orElse(null);
     }
 }
