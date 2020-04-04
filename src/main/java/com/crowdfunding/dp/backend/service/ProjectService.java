@@ -24,4 +24,8 @@ public class ProjectService {
     public Project getOneProject(Long projectId) {
         return projectRepository.findById(projectId).orElse(null);
     }
+
+    public Project createNewProject(Project project){
+        return projectRepository.save(project);
+    }
 }
