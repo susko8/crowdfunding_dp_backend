@@ -12,16 +12,20 @@ import javax.persistence.*;
 public class Project {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="projectid")
-    Long id;
+    private Long id;
 
     @Column(name="projectname")
-    String name;
+    private String name;
 
     @Column(name="projectdescription")
-    String description;
+    private String description;
 
     @Column(name="projectimagesrc")
-    String src;
+    private String src;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="createdby")
+    private User createdBy;
 }
