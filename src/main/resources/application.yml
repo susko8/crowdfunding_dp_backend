@@ -7,3 +7,4 @@ spring:
       user: crowdfunding
       password: 12345
       schemas: public
+      clean-on-validation-error: true
