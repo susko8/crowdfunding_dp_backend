@@ -23,7 +23,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     @Autowired
     JwtRequestFilter jwtRequestFilter;
 
-    private final String[] allowedRoutes = {"/rest/api/authenticate", "/rest/api/projects", "/rest/api/projects/*", "/rest/api/users/register"};
+    private final String[] allowedRoutes = {"/rest/api/authenticate", "/rest/api/projects", "/rest/api/projects/*", "/rest/api/users/register", "rest/api/price"};
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
