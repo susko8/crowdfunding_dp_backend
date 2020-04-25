@@ -23,7 +23,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     @Autowired
     JwtRequestFilter jwtRequestFilter;
 
-    private final String[] allowedRoutes = {"/rest/api/authenticate", "/rest/api/projects", "/rest/api/projects/{id}", "/rest/api/users/register", "/rest/api/price", "/rest/api/projects/contribute/{id}" +
+    private final String[] allowedRoutes = {"/rest/api/authenticate", "/rest/api/projects", "/rest/api/projects/{id}", "/rest/api/users/register", "/rest/api/price", "/rest/api/projects/contribute/{id}",
         "/rest/api/projects/contributions", "/rest/api/projects/contributions/{id}"};
 
     @Override
