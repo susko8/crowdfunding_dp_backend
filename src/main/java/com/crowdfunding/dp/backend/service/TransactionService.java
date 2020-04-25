@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,12 +33,16 @@ public class TransactionService {
     }
 
     public List<Transaction> getAllTransactions() {
-        return transactionRepository.findAll();
+        List<Transaction> transactionList =  transactionRepository.findAll();
+        transactionList.sort(Comparator.comparing(Transaction::getTransactiondate));
+        return transactionList;
     }
 
     public List<Transaction> getTransactionsForProject(Long projectId) {
         Optional<Project> projectOpt = projectRepository.findById(projectId);
-        return transactionRepository.findByProject(projectOpt.get());
+        List<Transaction> transactionList = transactionRepository.findByProject(projectOpt.get());
+        transactionList.sort(Comparator.comparing(Transaction::getTransactiondate));
+        return transactionList;
     }
 
     public List<Transaction> contributeToProject(Long projectId, ContributionData contributionData) {
