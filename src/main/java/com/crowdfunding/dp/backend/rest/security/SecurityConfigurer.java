@@ -23,7 +23,8 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     @Autowired
     JwtRequestFilter jwtRequestFilter;
 
-    private final String[] allowedRoutes = {"/rest/api/authenticate", "/rest/api/projects", "/rest/api/projects/*", "/rest/api/users/register", "rest/api/price"};
+    private final String[] allowedRoutes = {"/rest/api/authenticate", "/rest/api/projects", "/rest/api/projects/{id}", "/rest/api/users/register", "/rest/api/price", "/rest/api/projects/contribute/{id}" +
+        "/rest/api/projects/contributions", "/rest/api/projects/contributions/{id}"};
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -32,7 +33,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // povolenie request pre endpoint autentifikacie
+        // povolenie request pre verejne endpointy
         http.csrf().disable()
             .authorizeRequests().antMatchers(allowedRoutes)
             .permitAll()

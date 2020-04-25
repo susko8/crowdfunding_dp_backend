@@ -1,7 +1,6 @@
 package com.crowdfunding.dp.backend.rest.dto;
 
 import com.crowdfunding.dp.backend.model.Project;
-import com.crowdfunding.dp.backend.model.User;
 import lombok.Getter;
 import lombok.Setter;
 

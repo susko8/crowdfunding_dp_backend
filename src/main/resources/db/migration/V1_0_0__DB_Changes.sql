@@ -52,3 +52,12 @@ INSERT INTO project(projectname, projectdescription, projectimagesrc, createdby)
 VALUES ('Test Projekt 6',
         'Muffin cake jujubes candy canes muffin gummi bears brownie cotton candy.',
         'https://images.unsplash.com/photo-1582389713128-95f4b972ba4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',1);
+
+CREATE TABLE transactions
+(
+    transactionid    BIGSERIAL,
+    sum     float8,
+    transactiondate timestamp without time zone,
+    project  int,
+    doneby int
+);

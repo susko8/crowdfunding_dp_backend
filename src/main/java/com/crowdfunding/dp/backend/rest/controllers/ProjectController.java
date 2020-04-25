@@ -1,10 +1,12 @@
 package com.crowdfunding.dp.backend.rest.controllers;
 
 import com.crowdfunding.dp.backend.model.Project;
-import com.crowdfunding.dp.backend.model.User;
+import com.crowdfunding.dp.backend.model.Transaction;
+import com.crowdfunding.dp.backend.rest.dto.ContributionData;
 import com.crowdfunding.dp.backend.rest.dto.ProjectData;
 import com.crowdfunding.dp.backend.rest.dto.ProjectFormData;
 import com.crowdfunding.dp.backend.service.ProjectService;
+import com.crowdfunding.dp.backend.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +22,9 @@ public class ProjectController {
     @Autowired
     ProjectService projectService;
 
+    @Autowired
+    TransactionService transactionService;
+
     @GetMapping
     public ResponseEntity<List<Project>> getProjects(){
         return new ResponseEntity<>(projectService.getAllProjects(), HttpStatus.OK);
@@ -28,6 +33,21 @@ public class ProjectController {
     @GetMapping("/{id}")
     public ResponseEntity<ProjectData> getOneProjects(@PathVariable("id") Long projectId){
         return new ResponseEntity<>(projectService.getOneProject(projectId), HttpStatus.OK);
+    }
+
+    @GetMapping("/contributions")
+    public ResponseEntity<List<Transaction>> getAllContributions(){
+        return new ResponseEntity<>(transactionService.getAllTransactions(), HttpStatus.OK);
+    }
+
+    @GetMapping("/contributions/{id}")
+    public ResponseEntity<List<Transaction>> getContributionsForProject(@PathVariable("id") Long projectId){
+        return new ResponseEntity<>(transactionService.getTransactionsForProject(projectId), HttpStatus.OK);
+    }
+
+    @PostMapping("/contribute/{id}")
+    public ResponseEntity<List<Transaction>> contributeToProject(@PathVariable("id") Long projectId, @RequestBody ContributionData contributionData){
+        return new ResponseEntity<>(transactionService.contributeToProject(projectId, contributionData), HttpStatus.OK);
     }
 
     @PostMapping("/new")
