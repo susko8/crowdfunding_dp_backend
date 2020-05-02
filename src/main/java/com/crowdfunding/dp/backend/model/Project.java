@@ -1,5 +1,6 @@
 package com.crowdfunding.dp.backend.model;
 
+import com.crowdfunding.dp.backend.types.ProjectCategoryEnum;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,7 +26,10 @@ public class Project {
     @Column(name="projectimagesrc")
     private String src;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @Column(name="projectcategory")
+    private ProjectCategoryEnum category;
+
+    @OneToOne
     @JoinColumn(name="createdby")
     private User createdBy;
 }

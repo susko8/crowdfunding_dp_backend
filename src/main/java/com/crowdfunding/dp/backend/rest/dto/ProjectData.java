@@ -1,6 +1,7 @@
 package com.crowdfunding.dp.backend.rest.dto;
 
 import com.crowdfunding.dp.backend.model.Project;
+import com.crowdfunding.dp.backend.types.ProjectCategoryEnum;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +18,8 @@ public class ProjectData {
 
     String src;
 
+    ProjectCategoryEnum category;
+
     String createdBy;
 
     public static ProjectData from(Project project){
@@ -26,6 +29,7 @@ public class ProjectData {
         projectData.description = project.getDescription();
         projectData.src = project.getSrc();
         projectData.name = project.getName();
+        projectData.category = project.getCategory();
         return projectData;
 
     }

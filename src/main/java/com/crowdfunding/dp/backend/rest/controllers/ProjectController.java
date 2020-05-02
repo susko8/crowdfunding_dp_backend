@@ -7,6 +7,7 @@ import com.crowdfunding.dp.backend.rest.dto.ProjectData;
 import com.crowdfunding.dp.backend.rest.dto.ProjectFormData;
 import com.crowdfunding.dp.backend.service.ProjectService;
 import com.crowdfunding.dp.backend.service.TransactionService;
+import com.crowdfunding.dp.backend.types.ProjectCategoryEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,8 +27,8 @@ public class ProjectController {
     TransactionService transactionService;
 
     @GetMapping
-    public ResponseEntity<List<Project>> getProjects(@RequestParam String name){
-        return new ResponseEntity<>(projectService.getAllProjects(name), HttpStatus.OK);
+    public ResponseEntity<List<Project>> getProjects(@RequestParam String name, @RequestParam ProjectCategoryEnum category){
+        return new ResponseEntity<>(projectService.getAllProjects(name, category), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
@@ -53,5 +54,10 @@ public class ProjectController {
     @PostMapping("/new")
     public ResponseEntity<Project> createNewProject(@RequestBody ProjectFormData project){
         return new ResponseEntity<>(projectService.createNewProject(project), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteProject(@PathVariable("id") Long projectId){
+        projectService.deleteProject(projectId);
     }
 }

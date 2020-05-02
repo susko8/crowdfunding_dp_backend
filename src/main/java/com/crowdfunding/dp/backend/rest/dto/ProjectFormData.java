@@ -1,5 +1,6 @@
 package com.crowdfunding.dp.backend.rest.dto;
 
+import com.crowdfunding.dp.backend.types.ProjectCategoryEnum;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,4 +15,6 @@ public class ProjectFormData {
     String src;
 
     Long createdBy;
+
+    ProjectCategoryEnum category;
 }
