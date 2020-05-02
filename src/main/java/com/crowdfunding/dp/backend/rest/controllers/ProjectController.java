@@ -26,8 +26,8 @@ public class ProjectController {
     TransactionService transactionService;
 
     @GetMapping
-    public ResponseEntity<List<Project>> getProjects(){
-        return new ResponseEntity<>(projectService.getAllProjects(), HttpStatus.OK);
+    public ResponseEntity<List<Project>> getProjects(@RequestParam String name){
+        return new ResponseEntity<>(projectService.getAllProjects(name), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

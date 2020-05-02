@@ -27,7 +27,10 @@ public class ProjectService {
         this.userRepository = userRepository;
     }
 
-    public List<Project> getAllProjects() {
+    public List<Project> getAllProjects(String name) {
+        if (name != null) {
+            return projectRepository.findProjectsByNameContaining(name);
+        }
         return projectRepository.findAll();
     }
 
