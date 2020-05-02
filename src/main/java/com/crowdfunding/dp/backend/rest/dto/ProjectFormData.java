@@ -8,6 +8,8 @@ import lombok.Setter;
 @Setter
 public class ProjectFormData {
 
+    Long projectId;
+
     String name;
 
     String description;

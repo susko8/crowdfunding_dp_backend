@@ -36,6 +36,11 @@ public class ProjectController {
         return new ResponseEntity<>(projectService.getOneProject(projectId), HttpStatus.OK);
     }
 
+    @PutMapping("/edit")
+    public ResponseEntity<Project> editProject(@RequestBody ProjectFormData project){
+        return new ResponseEntity<>(projectService.editOneProject(project), HttpStatus.OK);
+    }
+
     @GetMapping("/contributions")
     public ResponseEntity<List<Transaction>> getAllContributions(){
         return new ResponseEntity<>(transactionService.getAllTransactions(), HttpStatus.OK);

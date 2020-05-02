@@ -67,6 +67,15 @@ public class ProjectService {
         return null;
     }
 
+    public Project editOneProject(ProjectFormData projectData){
+        Project project = findOneProject(projectData.getProjectId());
+        project.setDescription(projectData.getDescription());
+        project.setName(projectData.getName());
+        project.setSrc(projectData.getSrc());
+        project.setCategory(projectData.getCategory());
+        return projectRepository.save(project);
+    }
+
     public void deleteProject(Long projectId){
         projectRepository.delete(findOneProject(projectId));
     }
